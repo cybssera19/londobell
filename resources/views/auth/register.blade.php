@@ -20,28 +20,24 @@
         <form action="{{ route('register.post') }}" method="POST" class="space-y-4">
             @csrf
 
-            <!-- Nama Lengkap -->
             <div>
                 <input type="text" name="name" value="{{ old('name') }}" placeholder="Full Name" required
                     class="w-full px-4 py-3.5 bg-[#f5f5f7] border border-transparent rounded-2xl focus:outline-none focus:border-[#0071e3] focus:bg-white transition-all text-sm">
                 @error('name') <p class="text-xs text-rose-500 mt-1 ml-2">{{ $message }}</p> @enderror
             </div>
 
-            <!-- Email -->
             <div>
                 <input type="email" name="email" value="{{ old('email') }}" placeholder="Email address (@gmail.com)" required
                     class="w-full px-4 py-3.5 bg-[#f5f5f7] border border-transparent rounded-2xl focus:outline-none focus:border-[#0071e3] focus:bg-white transition-all text-sm">
                 @error('email') <p class="text-xs text-rose-500 mt-1 ml-2">{{ $message }}</p> @enderror
             </div>
 
-            <!-- Password -->
             <div>
                 <input type="password" name="password" placeholder="Password (6-12 characters)" required
                     class="w-full px-4 py-3.5 bg-[#f5f5f7] border border-transparent rounded-2xl focus:outline-none focus:border-[#0071e3] focus:bg-white transition-all text-sm">
                 @error('password') <p class="text-xs text-rose-500 mt-1 ml-2">{{ $message }}</p> @enderror
             </div>
 
-            <!-- Nomor Handphone -->
             <div>
                 <input type="text" name="phone" value="{{ old('phone') }}" placeholder="Phone Number (e.g., 081234...)" required
                     class="w-full px-4 py-3.5 bg-[#f5f5f7] border border-transparent rounded-2xl focus:outline-none focus:border-[#0071e3] focus:bg-white transition-all text-sm">

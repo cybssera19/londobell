@@ -11,7 +11,6 @@ class Cart extends Model
 
     protected $fillable = ['user_id', 'item_id', 'quantity'];
 
-    // Menghubungkan keranjang ke data barang asli
     public function item()
     {
         return $this->belongsTo(Item::class, 'item_id');

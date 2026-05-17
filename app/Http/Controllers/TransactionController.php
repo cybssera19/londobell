@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
-    // Logika Pemrosesan Checkout (Potong Stok + Buat Invoice)
     public function checkout()
     {
         $userId = Auth::id();
@@ -22,12 +21,10 @@ class TransactionController extends Controller
             return redirect()->back()->with('error', 'Keranjang belanja Anda kosong.');
         }
 
-        // Gunakan Database Transaction agar aman jika di tengah jalan ada error stok habis
         DB::beginTransaction();
         try {
             $grandTotal = 0;
 
-            // 1. Hitung total harga dan validasi stok terlebih dahulu
             foreach ($cartItems as $cart) {
                 if ($cart->item->stock < $cart->quantity) {
                     return redirect()->route('cart.index')->with('error', "Stok barang {$cart->item->item_name} tidak mencukupi!");
@@ -35,13 +32,11 @@ class TransactionController extends Controller
                 $grandTotal += $cart->item->price * $cart->quantity;
             }
 
-            // 2. Buat Nota Utama (Header)
             $header = TransactionHeader::create([
                 'user_id' => $userId,
                 'grand_total' => $grandTotal
             ]);
 
-            // 3. Pindahkan item dari keranjang ke detail transaksi & potong stok barang asli
             foreach ($cartItems as $cart) {
                 TransactionDetail::create([
                     'transaction_header_id' => $header->id,
@@ -49,12 +44,10 @@ class TransactionController extends Controller
                     'quantity' => $cart->quantity
                 ]);
 
-                // Potong stok item di database
                 $item = Item::find($cart->item_id);
                 $item->decrement('stock', $cart->quantity);
             }
 
-            // 4. Kosongkan keranjang belanja user
             Cart::where('user_id', $userId)->delete();
 
             DB::commit();
@@ -65,8 +58,6 @@ class TransactionController extends Controller
             return redirect()->route('cart.index')->with('error', 'Terjadi kesalahan sistem saat checkout.');
         }
     }
-
-    // Menampilkan riwayat transaksi milik user bersangkutan
     public function history()
     {
         $transactions = TransactionHeader::with('details.item')

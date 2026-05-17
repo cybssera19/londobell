@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review your Bag - Apple Style</title>
+    <title>Review your Bag</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>body { font-family: 'Inter', sans-serif; }</style>
@@ -31,7 +31,6 @@
         @endif
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- LIST BARANG DI KERANJANG -->
             <div class="md:col-span-2 space-y-4">
                 @forelse($cartItems as $cart)
                     <div class="bg-white border border-[#e8e8ed] rounded-3xl p-5 flex items-center space-x-4 shadow-sm">
@@ -57,7 +56,6 @@
                 @endforelse
             </div>
 
-            <!-- RINGKASAN PEMBAYARAN (ORDER SUMMARY) -->
             <div class="bg-white border border-[#e8e8ed] rounded-3xl p-6 shadow-sm h-fit space-y-4">
                 <h3 class="text-lg font-bold tracking-tight">Order Summary</h3>
                 <div class="divide-y divide-[#e8e8ed] text-sm">

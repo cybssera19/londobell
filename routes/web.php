@@ -32,7 +32,6 @@ Route::middleware(['admin'])->group(function () {
 
 Route::get('/catalog', [ItemController::class, 'userCatalog'])->name('user.catalog');
 
-// Route khusus untuk User yang sudah Login (Akses katalog dan keranjang)
 Route::middleware(['auth'])->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/add/{itemId}', [CartController::class, 'addToCart'])->name('cart.add');

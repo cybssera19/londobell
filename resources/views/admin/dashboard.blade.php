@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Dashboard - Apple Style</title>
+    <title>Inventory Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
 <body class="bg-[#f5f5f7] text-[#1d1d1f] min-h-screen">
 
-    <!-- Navigation Bar ala macOS App Store Header -->
     <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-[#e8e8ed] px-8 py-4 flex justify-between items-center">
         <div class="flex items-center space-x-3">
             <div class="w-8 h-8 bg-black text-white rounded-lg flex items-center justify-center font-bold text-sm">LB</div>
@@ -26,7 +25,6 @@
     </nav>
 
     <main class="max-w-6xl mx-auto px-8 py-10">
-        <!-- Header Section -->
         <div class="space-x-2">
             <a href="{{ route('categories.index') }}"
             class="px-5 py-2.5 bg-white border border-[#e8e8ed] hover:bg-[#f5f5f7] text-[#1d1d1f] text-sm font-medium rounded-full transition-all shadow-sm">
@@ -38,15 +36,12 @@
             </a>
         </div>
 
-
-        <!-- Alert Notification -->
         @if(session('success'))
             <div class="mb-6 p-4 text-sm text-emerald-600 bg-emerald-50 rounded-2xl border border-emerald-100 shadow-sm">
                 {{ session('success') }}
             </div>
         @endif
 
-        <!-- Inventory List (Apple Table Container) -->
         <div class="bg-white border border-[#e8e8ed] rounded-3xl overflow-hidden shadow-sm">
             <table class="w-full text-left border-collapse">
                 <thead>

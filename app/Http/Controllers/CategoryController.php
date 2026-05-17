@@ -7,7 +7,6 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    // Lihat semua kategori
     public function index()
     {
         $categories = Category::all();
@@ -25,8 +24,7 @@ class CategoryController extends Controller
         return redirect()->back()->with('success', 'Kategori berhasil ditambahkan!');
     }
 
-    // Hapus kategori
-    public function destroy($id)
+    public function destroy(int $id)
     {
         $category = Category::findOrFail($id);
         $category->delete();

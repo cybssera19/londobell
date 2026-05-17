@@ -14,12 +14,10 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // 1. Cek apakah user sudah login, dan apakah rolenya 'admin'
         if (Auth::check() && Auth::user()->role === 'admin') {
-            return $next($request); // Lolos! Silakan masuk ke halaman admin
+            return $next($request);
         }
 
-        // 2. Jika bukan admin, tendang balik ke halaman katalog user dengan pesan peringatan
         return redirect()->route('user.catalog')->with('error', 'Akses ditolak! Anda bukan Admin.');
     }
 }

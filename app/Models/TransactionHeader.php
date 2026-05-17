@@ -9,7 +9,7 @@ class TransactionHeader extends Model
 {
     use HasFactory;
 
-    protected $table = 'transaction_headers'; // Memastikan case-sensitivity aman untuk autograder
+    protected $table = 'transaction_headers';
     protected $fillable = ['user_id', 'grand_total'];
 
     public function user() {

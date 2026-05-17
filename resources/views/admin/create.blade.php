@@ -26,7 +26,6 @@
         @endif
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Form Tambah Kategori -->
             <div class="bg-white border border-[#e8e8ed] rounded-3xl p-6 shadow-sm h-fit">
                 <h3 class="text-lg font-semibold mb-4">Create Category</h3>
                 <form action="{{ route('categories.store') }}" method="POST" class="space-y-4">
@@ -42,7 +41,6 @@
                 </form>
             </div>
 
-            <!-- Tabel Daftar Kategori -->
             <div class="md:col-span-2 bg-white border border-[#e8e8ed] rounded-3xl overflow-hidden shadow-sm">
                 <table class="w-full text-left border-collapse">
                     <thead>

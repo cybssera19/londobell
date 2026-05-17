@@ -13,14 +13,13 @@ return new class extends Migration
     {
     Schema::create('items', function (Blueprint $table) {
         $table->id();
-        // Menghubungkan ke tabel categories
         $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
         $table->string('item_name');
         $table->integer('price');
         $table->integer('stock');
         $table->string('image')->nullable();
 
-        $table->timestamps(); // <-- PASTIKAN BARIS INI ADA DI SINI
+        $table->timestamps();
     });
     }
 

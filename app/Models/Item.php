@@ -17,7 +17,6 @@ class Item extends Model
         'image'
     ];
 
-    // Hubungan: Setiap barang memiliki satu kategori (Many to One)
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');

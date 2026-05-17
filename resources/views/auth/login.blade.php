@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In - PT Londo Bell</title>
-    <!-- Kita pakai Tailwind CSS untuk style ala Apple -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Menyisipkan font SF Pro via Google Fonts (Inter adalah alternatif terdekat) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -16,7 +14,6 @@
 
     <div class="w-full max-w-[400px] p-8 bg-white md:rounded-3xl md:shadow-sm border border-[#e8e8ed]">
 
-        <!-- Apple-like Logo Placeholder -->
         <div class="flex justify-center mb-6">
             <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-md">
                 LB
@@ -26,7 +23,6 @@
         <h2 class="text-2xl font-semibold text-center tracking-tight mb-2">Sign in to Londo Bell</h2>
         <p class="text-sm text-[#86868b] text-center mb-8">Manage your stock and invoices seamlessly.</p>
 
-        <!-- Notifikasi Sukses / Error dengan style clean -->
         @if(session('success'))
             <div class="mb-4 p-4 text-sm text-emerald-600 bg-emerald-50 rounded-2xl border border-emerald-100">
                 {{ session('success') }}
