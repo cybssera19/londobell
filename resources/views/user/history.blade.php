@@ -38,7 +38,6 @@
                         </div>
                     </div>
 
-                    <!-- Items List -->
                     <div class="divide-y divide-gray-100">
                         @foreach($tx->details as $detail)
                             <div class="py-2.5 flex justify-between text-sm">
@@ -48,7 +47,6 @@
                         @endforeach
                     </div>
 
-                    <!-- Grand Total -->
                     <div class="pt-3 border-t border-[#e8e8ed] flex justify-between items-center text-base font-bold">
                         <span class="text-sm text-[#86868b] font-normal">Amount Paid</span>
                         <span class="text-[#0071e3]">Rp {{ number_format($tx->grand_total, 0, ',', '.') }}</span>
